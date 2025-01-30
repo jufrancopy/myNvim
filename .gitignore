@@ -1,0 +1,9 @@
+*.swp
+*.swo
+
+plugged/
+
+.coc/
+
+*.bak
+*.tmp
