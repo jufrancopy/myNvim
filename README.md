@@ -1,76 +1,83 @@
 
-# Configuración de Neovim
+# Neovim y Gemini AI
 
-Este repositorio contiene la configuración personalizada de Neovim con diversos plugins y ajustes para mejorar la productividad, especialmente enfocado en PHP y Laravel, así como para desarrolladores en general.
+Este repositorio contiene mi configuración personalizada de Neovim. Utilizo una serie de plugins para mejorar mi productividad en el desarrollo de software, incluyendo soporte para varios lenguajes, administración de archivos, autocompletado, y herramientas avanzadas de Inteligencia Artificial (IA).
 
 ## Requisitos
 
-Asegúrate de tener lo siguiente instalado en tu sistema:
-
-- **Neovim**: La versión más reciente de Neovim.
-- **Vim-Plug**: El gestor de plugins para Neovim.
-- **PHP**: Para utilizar algunos plugins de soporte como `phpactor/phpactor`.
+- [Neovim 0.5+](https://neovim.io/)
+- [vim-plug](https://github.com/junegunn/vim-plug) como gestor de plugins.
+- Tener configuradas las claves de la API de Gemini para usar la integración de CodeCompanion.
 
 ## Instalación
 
-1. **Instalar Neovim**:
-   
-   Si no tienes Neovim instalado, puedes instalarlo siguiendo la documentación oficial de [Neovim](https://neovim.io/).
-
-2. **Instalar Vim-Plug**:
-   
-   Ejecuta el siguiente comando para instalar Vim-Plug:
-
-   ```bash
-   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+1. **Clona este repositorio en tu máquina**:
+   ```sh
+   git clone https://github.com/tu_usuario/neovim-config.git ~/.config/nvim
    ```
 
-3. **Clonar este repositorio**:
-
-   Si tienes el repositorio en GitHub, clónalo a tu directorio de configuración de Neovim:
-
-   ```bash
-   git clone <URL-DE-TU-REPOSITORIO> ~/.config/nvim
-   ```
-
-4. **Instalar Plugins**:
-
-   Abre Neovim y ejecuta el siguiente comando para instalar los plugins:
-
+2. **Instalar los plugins**:
+   Abre Neovim y ejecuta:
    ```vim
    :PlugInstall
    ```
 
-5. **Configuración de los plugins**:
+   Esto instalará todos los plugins que he configurado.
 
-   Algunos plugins necesitan configuraciones adicionales. Estos ya están predefinidos en los archivos de configuración de Neovim. Asegúrate de tener las dependencias necesarias, como `composer` para `phpactor`.
+3. **Configura tu API Key de Gemini**:
+   Para usar la funcionalidad de CodeCompanion, necesitas configurar tu clave de API de Gemini. 
+   Puedes obtenerla en [Gemini](https://gemini.com) y agregarla en tu entorno como una variable de entorno:
+   ```sh
+   export GEMINI_API_KEY="tu_clave_aqui"
+   ```
 
-## Explicación de la Configuración
+4. **Reinicia Neovim**.
 
-La configuración incluye los siguientes elementos:
+## Configuración
 
-- **Vim-Plug** para la gestión de plugins.
-- **Plugins principales**: como `coc.nvim`, `NERDTree`, `telescope.nvim`, `nvim-treesitter`, entre otros.
-- **Soporte para PHP y Laravel** mediante plugins como `phpactor/phpactor`.
-- **Configuración de barras de pestañas** y **funcionalidad de iconos** con `barbar.nvim` y `nvim-web-devicons`.
-- **Integración de Inteligencia Artificial** con el plugin `codecompanion.nvim`.
-- **Atajos personalizados** para facilitar la navegación y el trabajo en Neovim.
+### 1. **Plugins Principales**:
+   - `coc.nvim`: Herramienta de autocompletado para muchos lenguajes de programación.
+   - `nerdtree`: Administrador de archivos en forma de árbol.
+   - `nvim-treesitter`: Mejoras en el resaltado de sintaxis.
+   - `telescope.nvim`: Búsquedas avanzadas de archivos, buffers y más.
+   - `alpha-nvim`: Dashboard de inicio de Neovim.
+   - `codecompanion.nvim`: Integración con modelos de Inteligencia Artificial (IA) como Gemini para generar código y respuestas.
 
-## Atajos de Teclado
+### 2. **Atajos Personalizados**:
+   Aquí te explico algunos de los atajos que tengo configurados en mi entorno:
 
-Algunos de los atajos configurados incluyen:
+   - **Navegación en Pestañas**:
+     - `<Leader>1`, `<Leader>2`, ..., `<Leader>5`: Ir a la pestaña 1, 2, 3, 4 o 5.
+     - `<Leader>c`: Cerrar la pestaña actual.
+     - `<Tab>`: Ir a la pestaña siguiente.
+     - `<S-Tab>`: Ir a la pestaña anterior.
 
-- `<Leader>ff` para buscar archivos con `telescope`.
-- `<Leader>fg` para buscar texto en archivos con `telescope`.
-- `<Leader>fb` para ver los buffers abiertos.
-- `<Leader>lr` para abrir `routes/web.php` en un proyecto Laravel.
-- `<Leader>le` para abrir el archivo `.env` de Laravel.
-- **Navegar entre buffers** con las teclas `<Leader>1`, `<Leader>2`, ..., `<Leader>5`.
+   - **NerdTree**:
+     - `<Leader>n`: Abrir o cerrar NerdTree.
 
-## Notas Adicionales
+   - **CodeCompanion (Integración con IA)**:
+     - `<Leader>ch`: Iniciar una conversación con el modelo IA de Gemini.
+     - `<Leader>tg`: Activar/desactivar el chat de CodeCompanion en la vista actual.
+     - `ga`: Agregar texto a la conversación de IA.
 
-- **Dashboard**: La pantalla de inicio está configurada con `alpha-nvim` para mostrar un panel de bienvenida al iniciar Neovim.
-- **Treesitter**: Resaltado de sintaxis avanzado está habilitado para varios lenguajes como PHP, HTML, CSS, Lua, entre otros.
-- **CodeCompletion**: CoC.nvim proporciona autocompletado y navegación de código inteligente.
+   - **Búsquedas con Telescope**:
+     - `<Leader>ff`: Buscar archivos.
+     - `<Leader>fg`: Buscar contenido dentro de archivos.
+     - `<Leader>fb`: Buscar buffers abiertos.
+     - `<Leader>fc`: Buscar comandos disponibles.
 
-¡Espero que esta configuración te ayude a mejorar tu flujo de trabajo con Neovim!
+   - **CoC (Autocompletado)**:
+     - `gd`: Ir a la definición de un símbolo.
+     - `gy`: Ir a la definición del tipo de un símbolo.
+     - `gr`: Ver las referencias de un símbolo.
+
+   **Nota sobre CodeCompanion**: Este plugin se conecta a la API de Gemini para interactuar con modelos de Inteligencia Artificial. Puedes generar texto, obtener explicaciones sobre fragmentos de código, y más. Para usar esta funcionalidad, asegúrate de tener configurada tu clave de API de Gemini como se explicó anteriormente.
+
+
+## Contribuciones
+
+Si tienes alguna sugerencia de mejora o quieres compartir tus propias configuraciones, no dudes en crear un "pull request" o abrir un "issue" en este repositorio.
+
+## Licencia
+
+MIT License.
